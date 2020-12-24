@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>hemengke Blog</title>
+        <title>贺梦柯的博客 Blog</title>
         <link>https://hemengke1997.github.io/blog</link>
-        <description>hemengke Blog</description>
+        <description>贺梦柯的博客 Blog</description>
         <lastBuildDate>Thu, 30 May 2019 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
