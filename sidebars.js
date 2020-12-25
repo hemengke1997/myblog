@@ -31,7 +31,7 @@ module.exports = {
     {
       type: 'category',
       label: '书写风格',
-      items: ['styleGuide/doc1', 'styleGuide/doc2'],
+      items: ['styleGuide/doc1'],
     }
   ],
 };

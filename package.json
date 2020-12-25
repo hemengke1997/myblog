@@ -20,9 +20,7 @@
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.1.11",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "rehype-truncate": "^1.2.1",
-    "remark-images": "^2.0.0"
+    "react-dom": "^16.8.4"
   },
   "browserslist": {
     "production": [

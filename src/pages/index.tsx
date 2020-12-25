@@ -15,7 +15,7 @@ const features = [
         没什么好说的，一个帅字贯穿一生
       </>
     ),
-    url: 'resume/'
+    url: ''
   },
   {
     title: '想知道我怎么理财吗',
