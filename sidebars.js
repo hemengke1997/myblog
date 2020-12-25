@@ -11,7 +11,9 @@ var frontEndItems = [
   'changeFileName',
   'Todos',
   'miniProgramDva',
-  'vueWithWebwoker'
+  'vueWithWebwoker',
+  'react-setState-order',
+  'regExpCompatibility'
 ]
 
 
