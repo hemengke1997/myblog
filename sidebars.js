@@ -1,6 +1,37 @@
+const fPre = 'frontEnd/'
+
+var frontEndItems = [
+  'NProgress',
+  'axiosNormal',
+  'vueOptimize',
+  'tsConfig',
+  'copyContent',
+  'browserslist',
+  'vueReactive',
+  'changeFileName',
+  'Todos',
+  'miniProgramDva',
+  'vueWithWebwoker'
+]
+
+
+frontEndItems = frontEndItems.map(item => fPre + item)
 module.exports = {
-  someSidebar: {
-    Docusaurus: ['doc1', 'doc2', 'doc3'],
-    Features: ['mdx'],
-  },
+  docs: [ // 这个docs对应路由
+    {
+      type: 'category',
+      label: '前端',
+      items: frontEndItems
+    },
+    {
+      type: 'category',
+      label: '其他',
+      items: []
+    },
+    {
+      type: 'category',
+      label: '书写风格',
+      items: ['styleGuide/doc1', 'styleGuide/doc2'],
+    }
+  ],
 };

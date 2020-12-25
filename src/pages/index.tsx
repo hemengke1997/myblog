@@ -8,38 +8,38 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Easy to Use',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    title: '查看我的简历',
+    imageUrl: 'img/winter_tree.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        没什么好说的，一个帅字贯穿一生
       </>
     ),
+    url: 'resume/'
   },
   {
-    title: 'Focus on What Matters',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    title: '想知道我怎么理财吗',
+    imageUrl: 'img/candle.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        总的来说是亏的
       </>
     ),
+    url: 'blog/'
   },
   {
-    title: 'Powered by React',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    title: '查看我的知识文档',
+    imageUrl: 'img/champagne.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        工作和学习的总结
       </>
     ),
+    url: 'docs/'
   },
 ];
 
-function Feature({imageUrl, title, description}) {
+function Feature({ imageUrl, title, description, url }) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={clsx('col col--4', styles.feature)}>
@@ -48,33 +48,30 @@ function Feature({imageUrl, title, description}) {
           <img className={styles.featureImage} src={imgUrl} alt={title} />
         </div>
       )}
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <Link className={styles.weightFont} to={useBaseUrl(url)}>{title}</Link>
+      <p style={{ textAlign: 'center' }}>{description}</p>
     </div>
   );
 }
 
-function Home() {
+const Home: React.FC<{}> = () => {
   const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
+  const { siteConfig = {} } = context;
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={'主页'}
+      description="hemengke的个人网站">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx(
-                'button button--outline button--secondary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/')}>
-              Get Started
+          <h1 className="hero__title">hemengke1997</h1>
+          <p className="hero__subtitle">TOO FAST TO LIVE , TOO YOUNG TO DIE</p>
+          <Link
+            className={clsx(
+              'button button--outline button--secondary button--lg',
+            )}
+            to='https://www.yuque.com/hemengke'>
+            前往语雀
             </Link>
-          </div>
         </div>
       </header>
       <main>

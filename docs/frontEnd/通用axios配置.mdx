@@ -1,0 +1,234 @@
+---
+title: 通用axios配置 🤝
+id: axiosNormal
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+
+### 前言
+
+
+
+如今网页中充斥着各种各样的请求，在几年前，我还没毕业的时候，我只知道ajax，也一直在用JQ的$ajax发送请求。毕业之后接触到了axios，仿佛打开了新世界的大门。不得不说，这个插件把http请求封装得非常好。先进入正题，配置一个较为通用的axios请求类
+
+### 思路
+
+
+
+封装一个类，个性化实现请求
+
+
+
+### 预备工作
+
+
+
+- 了解常用请求（get, post, put ,delete)
+- 了解[`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- 了解请求体结构
+- `重点` 了解[`axios`](https://www.kancloud.cn/yunye/axios/234845)
+
+
+
+### 代码
+
+
+
+```javascript
+import axios from 'axios'
+import qs from 'qs'
+
+class AxiosInterceptor {
+  constructor() {
+    this.client = this.getAxiosClient()
+  }
+  get(url = '', params = {}) {
+    const option = {
+      url,
+      params,
+      method: 'get'
+    }
+    return this.request(option)
+  }
+  post(url = '', data = {}, type = 'x-www-form-urlencoded') {
+    const option = {
+      url,
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/x-www-urlencoded;charset=UTF-8'
+      }
+    }
+    if (type === 'json') { // json
+      option.headers['Content-Type'] = 'application/json;charset=UTF-8'
+      option.data = data
+    } else if (type === 'form-data') { // 文件
+      option.headers['Content-Type'] = 'multipart/form-data;charset=UTF-8'
+      const form = new FormData()
+      for (let key in data) {
+        let value = data[key]
+        form.append(key, value)
+      }
+      option.data = form
+    } else { // 表单
+      option.data = qs.stringify(data)
+    }
+    return this.request(option)
+  }
+  put(url = '', data = '') {
+    const option = {
+      url,
+      data,
+      headers: {
+        'Content-Type': ''
+      },
+      method: 'put'
+    }
+    return this.request(option)
+  }
+  delete(url = '', data = {}) {
+    const option = {
+      url,
+      data,
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    return this.request(option)
+  }
+
+  getAxiosClient() {
+    let axiosClient = axios.create(this.axiosConfig)
+    // 在请求或响应被 then 或 catch 处理前拦截它们。
+    // 响应拦截器
+    axiosClient.interceptors.response.use(res => {
+      if (res.data === '') {
+        // return '文件上传成功'
+      }
+      return Promise.resolve(res.data)
+    }, err => {
+      // 对错误进行处理
+      return Promise.reject(err)
+    })
+    // 请求拦截器 （ 可以在这里配置token相关的拦截）
+    axiosClient.interceptors.request.use()
+
+    return axiosClient
+  }
+
+  axiosConfig = {
+    baseUrl: 'prefix', // 若请求url不是绝对路径， 会把baseUrl添加到请求url前面
+    timeout: 10000, // 如果请求话费了超过 `timeout` 的时间，请求将被中断
+  }
+  request(option) {
+    return this.client.request(option)
+  }
+}
+```
+
+
+
+至此， 一个大致通用的axios拦截器配置完成。
+
+
+
+### 思考题 😆
+
+
+
+```javascript
+Promise.resolve(data)
+```
+
+
+
+请问，这句代码的意义？
+
+看官如果知道就最好了，如果不知道，请看文末
+
+
+
+### 总结 ✌️
+
+
+
+这里我没有配置请求拦截器，因为我目前做的项目里面还没有涉及到token。网上可以搜到很多相关配置。
+
+代码是手巧的，因为公司内网开发，项目代码拿不到， 回到家里自己回想敲粗来的代码，可能会有一些出入，应该没有大问题。
+
+
+
+### 思考题解答 👇
+
+
+
+思路： 先在浏览器打印一下`Promise.resolve(1)`， 看看结果
+
+<img alt='' src={useBaseUrl('img/axios1.png')} />
+
+
+可以看到，结果是一个`Promise`对象。并且继承了 `Promise`的一些方法，我们可以用一下里面的方法。
+
+
+
+```javascript
+var pm = Promise.resolve(1)
+
+pm.then(res => {
+  console.log(res) // 1
+})
+```
+
+
+
+看到这里，是不是发现跟咱们 new 一个 Promise对象的使用方法是一样的？ 🤔
+
+
+
+```javascript
+// 这里就是思考题的答案了 
+var pm = new Promise((resolve, reject)=>{
+  var data = 1
+  resolve(data)
+})
+
+pm.then(res=>{
+  console.log(res) // 1
+})
+```
+
+
+
+### 注意事项⚠️ 
+
+
+
+使用了 `Promise.reject` 后， 必须 `catch` 这个 `reject`
+
+
+
+```javascript
+var pm = Promise.reject(1)
+pm.catch(err=>{
+  ...
+})
+```
+
+
+
+### 题外话 😊
+
+
+
+再说说，咱们平时都是`new Promise()`对象， 为啥直接 `Promise.resolve()` 也可以用呢？
+
+<img alt='' src={useBaseUrl('img/axios2.png')} />
+
+
+
+原来 `Promise`这个构造函数中就带了一些方法， 比如 `all`，`resolve`，`reject` 等等
+
+
+
+### 感谢阅读 🙏
