@@ -27,7 +27,8 @@ var frontEndItems = [
   'SonarScanner',
   'reactAdvance',
   'requestHeaders',
-  'docusaurus'
+  'docusaurus',
+  'juejinImageViewer'
 ]
 
 
