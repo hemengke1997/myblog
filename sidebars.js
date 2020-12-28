@@ -26,7 +26,8 @@ var frontEndItems = [
   'httpHistory',
   'SonarScanner',
   'reactAdvance',
-  'requestHeaders'
+  'requestHeaders',
+  'docusaurus'
 ]
 
 

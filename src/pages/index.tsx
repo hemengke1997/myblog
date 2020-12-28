@@ -61,7 +61,11 @@ const Home: React.FC<{}> = () => {
     <Layout
       title={'主页'}
       description="hemengke的个人网站">
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <header className={clsx('hero hero--primary', styles.heroBanner)} style={{
+        backgroundImage: `url(${useBaseUrl('img/index.jpg')})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
+      }}>
         <div className="container">
           <h1 className="hero__title">hemengke1997</h1>
           <p className="hero__subtitle">TOO FAST TO LIVE , TOO YOUNG TO DIE</p>

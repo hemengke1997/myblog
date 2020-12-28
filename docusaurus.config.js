@@ -2,7 +2,7 @@ const remarkImages = require('remark-images');
 const rehypeTruncate = require('rehype-truncate');
 
 module.exports = {
-  title: '贺梦柯的个人网站',
+  title: 'hemengke1997',
   tagline: '记录平时的前端学习以及理财',
   url: 'https://hemengke1997.github.io',
   baseUrl: '/myblog/',
@@ -82,7 +82,7 @@ module.exports = {
           showLastUpdateTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/hemengke1997/myblog',
+            'https://github.com/hemengke1997/myblog/blob/master',
           remarkPlugins: [remarkImages],
           rehypePlugins: [rehypeTruncate],
         },
@@ -90,7 +90,7 @@ module.exports = {
           path: 'blog',
           showReadingTime: true,
           editUrl:
-            'https://github.com/hemengke1997/myblog',
+            'https://github.com/hemengke1997/myblog/blob/master',
           feedOptions: {
             type: 'all',
             copyright: `Copyright © ${new Date().getFullYear()} hemengke1997, Inc.`,
