@@ -201,3 +201,8 @@ This is a caution
 This is a warning
 
 :::
+
+
+### 部署命令
+
+`cmd /C 'set "GIT_USER=hemengke1997" && yarn deploy'`
