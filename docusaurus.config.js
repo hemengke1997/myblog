@@ -30,10 +30,14 @@ module.exports = {
     // },
     switchConfig: {
       darkIcon: '🌙',
-      defaultMode: 'dark'
+    },
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'hemengke',
+      title: 'hemengke1997',
       hideOnScroll: true,
       logo: {
         alt: 'logo',

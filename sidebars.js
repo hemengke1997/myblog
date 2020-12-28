@@ -1,9 +1,10 @@
 const fPre = 'frontEnd/'
 
 var frontEndItems = [
+  'intro',
+  'vueOptimize',
   'NProgress',
   'axiosNormal',
-  'vueOptimize',
   'tsConfig',
   'copyContent',
   'browserslist',
@@ -13,7 +14,19 @@ var frontEndItems = [
   'miniProgramDva',
   'vueWithWebwoker',
   'react-setState-order',
-  'regExpCompatibility'
+  'regExpCompatibility',
+  'typescriptGuide',
+  'compare',
+  'notOnlyLazyLoadImage',
+  'thinkLazyloadImg',
+  'thinkSinglemode',
+  'performanceAndError',
+  'imageWidthSelfAdapting',
+  'gitCommitRule',
+  'httpHistory',
+  'SonarScanner',
+  'reactAdvance',
+  'requestHeaders'
 ]
 
 

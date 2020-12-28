@@ -1,9 +1,7 @@
 ---
 title: typesciprt 入门
-id: typescript
+id: typescriptGuide
 ---
-
-# typesciprt 入门
 
 ## 项目配置
 根目录上配置： `tsconfig.json`  详细[配置链接](https://www.tslang.cn/docs/handbook/tsconfig-json.html)
@@ -46,8 +44,8 @@ id: typescript
 - number: const x: number = 1
 - boolean: const x: boolean = true // 注意： 使用new Boolean()构造出来的实例不是boolean类型
 - string: const x:string = 'xx'
-- 数组: 有两种表示方式 number[] / Array<number>
-- 元组: 规定个数和类型的数组叫作元组  const x:[number,string] = [1, 'x']
+- 数组: 有两种表示方式 `number[]` / `Array<number>`
+- 元组: 规定个数和类型的数组叫作元组  `const x:[number,string] = [1, 'x']`
 - 枚举:  把一些有关联的数据放在一起， 如星期几，方向，正确或错误等
 ```typescript
 enum x {

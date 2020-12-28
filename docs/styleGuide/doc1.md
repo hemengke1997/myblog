@@ -2,7 +2,7 @@
 id: doc1
 title: 风格指南
 sidebar_label: 风格指南
-slug: /
+
 ---
 
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
