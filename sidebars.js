@@ -1,4 +1,5 @@
 const fPre = 'frontEnd/'
+const IPre = 'interview/'
 
 var frontEndItems = [
   'intro',
@@ -31,14 +32,24 @@ var frontEndItems = [
   'juejinImageViewer'
 ]
 
+var interviewItems = [
+  'interview'
+]
+
 
 frontEndItems = frontEndItems.map(item => fPre + item)
+interviewItems = interviewItems.map(item => IPre + item)
 module.exports = {
   docs: [ // 这个docs对应路由
     {
       type: 'category',
       label: '前端',
       items: frontEndItems
+    },
+    {
+      type: 'category',
+      label: '面试题',
+      items: interviewItems
     },
     {
       type: 'category',
