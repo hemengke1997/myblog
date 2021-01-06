@@ -37,6 +37,7 @@ var interviewItems = [
 ]
 
 
+
 frontEndItems = frontEndItems.map(item => fPre + item)
 interviewItems = interviewItems.map(item => IPre + item)
 module.exports = {
@@ -60,6 +61,10 @@ module.exports = {
       type: 'category',
       label: '书写风格',
       items: ['styleGuide/doc1'],
-    }
+    },
+    {
+      type: 'doc',
+      id: 'hemengke'
+    },
   ],
 };

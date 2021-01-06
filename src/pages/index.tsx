@@ -15,7 +15,7 @@ const features = [
         没什么好说的，一个帅字贯穿一生
       </>
     ),
-    url: ''
+    url: '/docs/hemengke'
   },
   {
     title: '想知道我怎么理财吗',
